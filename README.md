@@ -68,7 +68,7 @@ Prova di implementazione di un ciclo completo di **Visual Grounding**, **Hover/V
 
 ---
 
-## Passaggi cruciali da non dimenticare
+## Configurazioni eseguite per l'ambiente di simulazione
 
 Dalle impostazioni della VM, nella sezione rete ho configurato un Port Forwardin con Host 2222 e Guest 22.
 
