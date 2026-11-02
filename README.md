@@ -38,6 +38,23 @@ Prova di implementazione di un ciclo completo di **Visual Grounding**, **Hover/V
 4. **Scrittura Report:** Apre il file di testo, scrive automaticamente il report dettagliato delle operazioni svolte, salva con scorciatoia e chiude l'editor.
 5. **Chiusura e Telemetria:** Chiude il File Manager, ripristina lo stato del desktop ed esporta il report finale in formato JSON (`gui_agent_report.json`) con i dati prestazionali dell'esperimento.
 
+Questo però è ancora guidato, non riesce a capire che azioni fare se gli diamo un prompt, ma gli facciamo controllare lo schermo dopo ogni azione (e consuma anche molte richieste, NON ottimizzato, molto migliorabile). Il prossimo passo è provare un vero e proprio GUI-Agent che da un singolo prompt utente prova a fare le azioni da solo (senza essere guidato passo passo ed essere specializzato solo su un azione e se cambia leggermente un nome, una lettere maiuscola invece che minuscola se ne va in panico, ma riuscendo a capire comunque cosa può portare al risultato ottimale). Diviso in Planner, Executor, Contoller. 
+
+Limite chiamate modelli FREE di OpenRouter è:
+```json
+  "is_free_tier": true,
+  "free_model_daily_requests": {
+    "used": 50,
+    "limit": 50,
+    "remaining": 0
+  }
+```
+Quindi da vedere ed ottimizzare meglio il tutto. Per controllare quante chiamate hai a disposizione da terminale si digita:
+```
+curl https://openrouter.ai/api/v1/key \
+  -H "Authorization: Bearer LA_TUA_API_KEY"
+```
+
 ---
 
 ### 🛠️
